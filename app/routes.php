@@ -11,7 +11,7 @@
 |
 */
 
-// The first parameter is the URI pattern. When a pattern is matched, the closure funciton in the second parameter is executed with any parameters that were exrtaceted from yoru pattern.
+// The first parameter is the URI pattern. When a pattern is matched, the closure function in the second parameter is executed with any parameters that were extracted from your pattern.
 
 Route::get('/', function() {
 	return "All cats";
@@ -25,4 +25,4 @@ Route::get('/', function() {
 Route::get('cats/{id}', function($id) {
 	return "Cat $id";
 }) ->where('id', '[0-9]+');
-// where method take two arguments: first the name of the parameter; seond the regex pattern it needs to match.
+// where method take two arguments: first the name of the parameter; second the regex pattern it needs to match.
