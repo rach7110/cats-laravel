@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Cats Databse!</title>
+		<title>Cats Database!</title>
 		<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 	</head>
 	<body>
@@ -10,6 +10,11 @@
 			<div class="page-header">
 				@yield('header')
 			</div>
+			@if(Session::has('message'))
+				<div class="alert alert-success">
+					{{Session::get('message')}}
+				</div>
+				@endif
 			@yield('content')
 		</div>
 	</body>
