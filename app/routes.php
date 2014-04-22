@@ -21,8 +21,21 @@ Route::get('/', function() {
 // 	return "Cat $id";
 // });
 
+// RESTRICTING ROUTE PARAMS:
 // To limit the pattern of the {id} route, chain a 'where' method to the route:
 Route::get('cats/{id}', function($id) {
 	return "Cat $id";
 }) ->where('id', '[0-9]+');
 // where method take two arguments: first the name of the parameter; second the regex pattern it needs to match.
+
+// REDIRECTS:
+// Return a 'Redirect' object from your routes:
+Route::get('cats', function(){
+	return Redirect::to('/');
+});
+
+// VIEWS:
+// Return your view by using the View::make method with a variable
+Route::get('about', function() {
+	return View::make('about') -> with('number_of_cats', 9000) -> with('bugs', " Bugs are gross!");
+});

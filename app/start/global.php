@@ -51,6 +51,11 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+// Display a custom error message when "NotFound" is caught by using the missing method:
+App::missing(function($exception){
+	return Response::make("Bullocks!", 404);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
