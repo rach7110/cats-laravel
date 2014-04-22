@@ -36,6 +36,11 @@ Route::get('cats', function(){
 
 // VIEWS:
 // Return your view by using the View::make method with a variable
-Route::get('about', function() {
+Route::get('about', function(){
 	return View::make('about') -> with('number_of_cats', 9000) -> with('bugs', " Bugs are gross!");
+});
+
+Route::get('cats', function(){
+	$cats = Cat::all();
+	return View::make('cats.index')->with('cats', $cats);
 });

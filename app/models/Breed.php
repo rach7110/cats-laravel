@@ -5,5 +5,5 @@ class Breed extends Eloquent {
 		return $this->hasMany('Cats');
 	}
 	public $timestamps = false;
-	<!-- By default, Laravel expects a 'created_at' and updated_at' timestamp field in the table -->
+// By default, Laravel expects a 'created_at' and updated_at' timestamp field in the table
 }
