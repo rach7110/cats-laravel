@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Cats Databse!</title>
-		<link rel="stylesheets" href="{{asset('bootstrap-3.0.0.min.css')}}">
+		<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 	</head>
 	<body>
 		<div class="container">
