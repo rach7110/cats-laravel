@@ -51,3 +51,14 @@ Route::get('cats/breed/{name}', function($name){
 		->with('breed', $breed)
 		->with('cats', $breed->cats);
 });
+
+// BIND A MODEL TO A ROUTE - SO YOU CAN AVOID DOING REPEATED QUERIES LIKE 
+// Route::get ('cats/{id}', function($id){
+//	 $cat = Cat::find($id);	
+// })
+Route::model('cat', 'Cat');
+// Allows you to shorten the route and pass a 'Cat' object to it instead:
+Route::get('cats/{cat}', function(Cat $cat) {
+	return View::make('cats.single')
+		->with('cat', $cat);
+});
