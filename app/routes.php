@@ -23,9 +23,9 @@ Route::get('/', function() {
 
 // RESTRICTING ROUTE PARAMS:
 // To limit the pattern of the {id} route, chain a 'where' method to the route:
-Route::get('cats/{id}', function($id) {
-	return "Cat $id";
-}) ->where('id', '[0-9]+');
+// Route::get('cats/{id}', function($id) {
+// 	return "Cat $id";
+// }) ->where('id', '[0-9]+');
 // where method take two arguments: first the name of the parameter; second the regex pattern it needs to match.
 
 // REDIRECTS:
