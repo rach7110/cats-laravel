@@ -62,3 +62,25 @@ Route::get('cats/{cat}', function(Cat $cat) {
 	return View::make('cats.single')
 		->with('cat', $cat);
 });
+
+// CREATE:
+Route::get('cats/create', function() {
+	$cat  = new Cat;
+	return View::make('cats.edit')
+		->with('cat', $cat)
+		->with('method', 'post');
+});
+
+// EDIT:
+Route::get('cats/{cat}/edit', function(Cat $cat) {
+	return View::make('cats.edit')
+		->with('cat', $cat)
+		->with('method', 'put');
+});
+
+// DESTROY:
+Route::get('cats/{cat}/delete', function(Cat $cat) {
+	return View::make('cats.edit')
+		->with('cat', $cat)
+		->with('method'->delete);
+});
