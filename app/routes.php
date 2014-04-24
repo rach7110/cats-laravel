@@ -30,9 +30,9 @@ Route::get('cats/{id}', function($id) {
 
 // REDIRECTS:
 // Return a 'Redirect' object from your routes:
-Route::get('cats', function(){
-	return Redirect::to('/');
-});
+// Route::get('cats', function(){
+// 	return Redirect::to('/');
+// });
 
 // VIEWS:
 // Return your view by using the View::make method with a variable
@@ -43,4 +43,11 @@ Route::get('about', function(){
 Route::get('cats', function(){
 	$cats = Cat::all();
 	return View::make('cats.index')->with('cats', $cats);
+});
+
+Route::get('cats/breed/{name}', function($name){
+	$breed = Breed::whereName($name)->with('cats')->first();
+	return View::make('cats.index')
+		->with('breed', $breed)
+		->with('cats', $breed->cats);
 });
