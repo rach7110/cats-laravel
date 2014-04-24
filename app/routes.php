@@ -74,7 +74,7 @@ Route::get('cats/create', function() {
 // EDIT:
 Route::get('cats/{cat}/edit', function(Cat $cat) {
 	return View::make('cats.edit')
-		->with('cat', $cat)
+		->with('cat', $cat) 
 		->with('method', 'put');
 });
 
@@ -82,7 +82,7 @@ Route::get('cats/{cat}/edit', function(Cat $cat) {
 Route::get('cats/{cat}/delete', function(Cat $cat) {
 	return View::make('cats.edit')
 		->with('cat', $cat)
-		->with('method'->delete);
+		->with('method', 'delete');
 });
 
 // CREATE HANDLER: POST
@@ -96,7 +96,7 @@ Route::post('cats', function(){
 Route::put('cats/{cat}', function(Cat $cat){
 	$cat->update(Input::all());
 	return Redirect::to('cats/'.$cat->id)
-		->with('message', 'Successfully updated $cat->id cat!')
+		->with('message', 'Successfully updated $cat->id cat!');
 });
 
 // DELETE HANDLER: DELETE
