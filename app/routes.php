@@ -40,6 +40,11 @@ Route::get('about', function(){
 	return View::make('about') -> with('number_of_cats', 9000) -> with('bugs', " Bugs are gross!");
 });
 
+// ELOQUENT QUERIES: 
+// The all() method in the first route below loads all the entries
+// in the cat table. The second route has a more complex query.
+// The first method, whereName(), is a dynamic method that translates into a 'WHERE name = $name' SQL query. The with() meethod loads the realted cat models, and first() retrieves the first instance (of the breed, right?).
+
 Route::get('cats', function(){
 	$cats = Cat::all();
 	return View::make('cats.index')->with('cats', $cats);
@@ -55,9 +60,12 @@ Route::get('cats/breed/{name}', function($name){
 // BIND A MODEL TO A ROUTE - SO YOU CAN AVOID DOING REPEATED QUERIES LIKE 
 // Route::get ('cats/{id}', function($id){
 //	 $cat = Cat::find($id);	
-// })
-Route::model('cat', 'Cat');
-// Allows you to shorten the route and pass a 'Cat' object to it instead:
+// 		return View::make('cats.single')
+// 			->with('cat', $cat);
+// });
+
+Route::model('cat', 'Cat'); // <- bound model to route.
+// Allows you to shorten the route and pass a 'Cat' object to it instead. Looks like this:
 Route::get('cats/{cat}', function(Cat $cat) {
 	return View::make('cats.single')
 		->with('cat', $cat);

@@ -52,9 +52,9 @@ App::error(function(Exception $exception, $code)
 });
 
 // Display a custom error message when "NotFound" is caught by using the missing method:
-App::missing(function($exception){
-	return Response::make("Bullocks!", 404);
-});
+// App::missing(function($exception){
+// 	return Response::make("Bullocks!", 404);
+// });
 
 /*
 |--------------------------------------------------------------------------
