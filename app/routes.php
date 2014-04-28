@@ -14,7 +14,8 @@
 // The first parameter is the URI pattern. When a pattern is matched, the closure function in the second parameter is executed with any parameters that were extracted from your pattern.
 
 Route::get('/', function() {
-	return "All cats";
+	$name = 'Rachel';
+	return View::make('hello')->with('name', $name);
 });
 
 // Route::get('cats/{id}', function($id) {
